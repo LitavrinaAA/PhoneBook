@@ -1,7 +1,5 @@
 package PhoneBookProject;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
 
 class PhoneBook {
     private static HashMap<String, ArrayList<Integer>> phoneBook = new HashMap<>();
@@ -55,6 +53,19 @@ class PhoneBook {
 // Введите свое решение ниже
         return phoneBook;
     }
+    public static void printPhoneBook() {
+// Введите свое решение ниже
+       List<Map.Entry<String, ArrayList<Integer>>> list = new ArrayList<>(phoneBook.entrySet());
+       Collections.sort(list, new Comparator<Map.Entry<String, ArrayList<Integer>>>() {
+           @Override
+           public int compare(Map.Entry<String, ArrayList<Integer>> o1, Map.Entry<String, ArrayList<Integer>> o2) {
+               return o2.getValue().size() - o1.getValue().size();
+           }
+       });
+        for (Map.Entry<String, ArrayList<Integer>> entry : list) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+    }
 }
 public class PhoneBookProject {
     public static void main(String[] args) {
@@ -83,5 +94,6 @@ public class PhoneBookProject {
         System.out.println(myPhoneBook.find(name2));
         System.out.println(PhoneBook.getPhoneBook());
         System.out.println(myPhoneBook.find("Me"));
+        myPhoneBook.printPhoneBook();
     }
 }
