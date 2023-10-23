@@ -1,6 +1,7 @@
 package PhoneBookProject;
 import java.util.*;
 
+// printPhoneBook() - Вывести отсортированный список
 class PhoneBook {
     private static HashMap<String, ArrayList<Integer>> phoneBook = new HashMap<>();
 
@@ -29,7 +30,7 @@ class PhoneBook {
     }
 
     public ArrayList<Integer> find(String name) {
-// Введите свое решение ниже
+
         ArrayList<Integer> result = new ArrayList<>();
         Set<HashMap.Entry<String, ArrayList<Integer>>> hm = phoneBook.entrySet();
         String str = null;
@@ -50,11 +51,11 @@ class PhoneBook {
     }
 
     public static HashMap<String, ArrayList<Integer>> getPhoneBook() {
-// Введите свое решение ниже
+
         return phoneBook;
     }
     public static void printPhoneBook() {
-// Введите свое решение ниже
+// Вывести отсортированный список
        List<Map.Entry<String, ArrayList<Integer>>> list = new ArrayList<>(phoneBook.entrySet());
        Collections.sort(list, new Comparator<Map.Entry<String, ArrayList<Integer>>>() {
            @Override
